@@ -1,0 +1,6 @@
+---
+title: "p8105_hw3_sx2402"
+author: "Eric Xu"
+date: "2025-10-04"
+output: github_document
+---
