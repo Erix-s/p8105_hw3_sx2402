@@ -119,3 +119,25 @@ knitr::kable(mean_hours, digits = 2)
 ```
 
 ## Problem 2
+```{r P2 data import, message = FALSE}
+zip_code = read_csv("./Data/Zip Codes.csv") |> 
+  janitor::clean_names()
+
+zori = read.csv("./Data/Zip_zori_uc_sfrcondomfr_sm_month_NYC.csv") |> 
+  janitor::clean_names() |> 
+  filter(region_type == "zip")|> 
+  rename(
+    zip_code = region_name,
+    zori_county = county_name
+         )
+
+zori_long = zori |> 
+  pivot_longer(x2015_01_31:x2024_08_31,
+               names_to = "date",
+               values_to = "zori",
+               names_prefix = "x",
+               )
+
+zori_zip = inner_join(zori_long,zip_code,by="zip_code",relationship = "many-to-many")
+```
+
