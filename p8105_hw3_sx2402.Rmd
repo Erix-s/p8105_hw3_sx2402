@@ -298,6 +298,7 @@ __Table and Plots__
 ```{r P3.2}
 knitr::kable(count(covar_accel, education, sex))
 ```
+
 Among the selected sample, the distribution of individual across each education level is similar across sex, though there is more male in High school equivalent level compared to female. There are overall more individuals in More than high school education level compared to other 2 with less experience in school.
 
 ```{r P3.3}
@@ -308,6 +309,7 @@ covar_accel |>
   facet_grid(~education)+
   viridis::scale_fill_viridis(discrete = TRUE)
 ```
+
 The plot shows the age distribution of male and female across different education levels. There is a wide spread range from 21 to 80. The male and female density map overlaps generally in all three maps showing a relatively stable distribution except for variation in 20-40 years old individuals in High school equivalent level. Overall, the age distribution is different in three groups where More than high school individuals are more dense in younger ages and Less than high school groups are more dense in elderly. For High school equivalent, there are more elderly female while male has a generally averaged distribution across all ages.
 
 ```{r P3.4, message = FALSE}
@@ -343,6 +345,7 @@ ggplot(total_activity, aes(x = age, y = total_activity, color = sex)) +
   theme_minimal() +
   viridis::scale_color_viridis(discrete = TRUE)
 ```
+
 Daily physical activity generally declines with age across all education levels. Female show higher total activity than men across a majority of groups, except for individuals over 60 in the Less than high school category, where men show slightly higher activity. The decline in activity is higher in scale among participants with lower educational attainment, likely reflecting differences in SES, occupational demands, and retirement patterns. In contrast, participants with higher education maintain relatively higher activity levels, possibly due to greater health awareness, access to resources, and structured leisure-time activities. The variation of activity is high and the trend is created by smooth function as an approximate estimate which may not be fitting the real situation.
 
 ```{r P3.5, message = FALSE}
@@ -357,4 +360,5 @@ ggplot(accel_long, aes(x = hour, y = activity, color = sex)) +
   geom_smooth(se = FALSE, alpha = 0.5) +
   theme_minimal()
 ```
+
 With the plot of 24-hour mean activity of individuals over 21 years old, there is clear diurnal rhythm activity and a peak of activity interval appears around 9 until 20. In general, female performs higher mean activity by accelerator measuring compared to male in mean value. This difference is more significant for groups with higher education level that more obvious in High School Equivalent level and most obvious in More than high school level. Also, the average activity seems to fall shortly after 12 which may due to lunch and rest. Also, smoother peaks can be observed in higher education levels which can be due to SES and occupations within stable environment. The variation can also arise from the age distribution in sample since the variation would be large for different stages in life.
